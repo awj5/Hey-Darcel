@@ -11,6 +11,7 @@
 		A4788D43298D297A0052AEF7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4788D42298D297A0052AEF7 /* ContentView.swift */; };
 		A4788D45298D297C0052AEF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4788D44298D297C0052AEF7 /* Assets.xcassets */; };
 		A4788D48298D297C0052AEF7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4788D47298D297C0052AEF7 /* Preview Assets.xcassets */; };
+		A4788D4F298D29F10052AEF7 /* Darcel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4788D4E298D29F10052AEF7 /* Darcel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		A4788D42298D297A0052AEF7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A4788D44298D297C0052AEF7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A4788D47298D297C0052AEF7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A4788D4E298D29F10052AEF7 /* Darcel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Darcel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			children = (
 				A4788D40298D297A0052AEF7 /* Hey_DarcelApp.swift */,
 				A4788D42298D297A0052AEF7 /* ContentView.swift */,
+				A4788D4E298D29F10052AEF7 /* Darcel.swift */,
 				A4788D44298D297C0052AEF7 /* Assets.xcassets */,
 				A4788D46298D297C0052AEF7 /* Preview Content */,
 			);
@@ -139,6 +142,7 @@
 			files = (
 				A4788D43298D297A0052AEF7 /* ContentView.swift in Sources */,
 				A4788D41298D297A0052AEF7 /* Hey_DarcelApp.swift in Sources */,
+				A4788D4F298D29F10052AEF7 /* Darcel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,8 +277,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,8 +306,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
