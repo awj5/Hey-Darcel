@@ -11,16 +11,24 @@ struct ContentView: View {
     var body: some View {
         GeometryReader { geometry in
             VStack(spacing: 0) {
-                Text("Hello, World!")
-                    .frame(height: geometry.size.height / 3)
+                VStack(spacing: -24) {
+                    Text("Ask me a")
+                    Text("question")
+                    Text("then shake!")
+                }
+                .font(.custom("ITC Avant Garde Gothic LT Bold", size: 48))
+                .tracking(-4)
+                .foregroundColor(.white)
+                .frame(height: geometry.size.height / 4)
                 
                 Darcel()
-                    .frame(height: geometry.size.height / 3)
+                    .frame(height: geometry.size.height / 2)
                 
                 Text("Hello, World!")
-                    .frame(height: geometry.size.height / 3)
+                    .frame(height: geometry.size.height / 4)
             }
             .frame(width: geometry.size.width)
+            .background(Color("DarcelYellow"))
         }
     }
 }

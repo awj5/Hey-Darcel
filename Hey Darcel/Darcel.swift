@@ -18,6 +18,9 @@ struct Darcel: View {
                 .resizable()
                 .scaledToFit()
             
+            Image("darcel-mouth-smile")
+                .resizable()
+                .scaledToFit()
         }
     }
 }
