@@ -11,15 +11,9 @@ struct ContentView: View {
     var body: some View {
         GeometryReader { geometry in
             VStack(spacing: 0) {
-                VStack(spacing: -24) {
-                    Text("Ask me a")
-                    Text("question")
-                    Text("then shake!")
-                }
-                .font(.custom("ITC Avant Garde Gothic LT Bold", size: 48))
-                .tracking(-4)
-                .foregroundColor(.white)
-                .frame(height: geometry.size.height / 4)
+                Heading1(lines: ["Ask me a", "question", "then shake!"])
+                    .foregroundColor(.white)
+                    .frame(height: geometry.size.height / 4)
                 
                 Darcel()
                     .frame(height: geometry.size.height / 2)

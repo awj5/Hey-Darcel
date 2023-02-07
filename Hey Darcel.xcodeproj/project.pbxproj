@@ -13,6 +13,7 @@
 		A4788D48298D297C0052AEF7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4788D47298D297C0052AEF7 /* Preview Assets.xcassets */; };
 		A4788D4F298D29F10052AEF7 /* Darcel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4788D4E298D29F10052AEF7 /* Darcel.swift */; };
 		A4788D51299107D40052AEF7 /* itc-avant-garde-gothic-lt-bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A4788D50299107B90052AEF7 /* itc-avant-garde-gothic-lt-bold.ttf */; };
+		A4788D54299269B20052AEF7 /* Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4788D53299269B20052AEF7 /* Shared.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		A4788D4E298D29F10052AEF7 /* Darcel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Darcel.swift; sourceTree = "<group>"; };
 		A4788D50299107B90052AEF7 /* itc-avant-garde-gothic-lt-bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "itc-avant-garde-gothic-lt-bold.ttf"; sourceTree = "<group>"; };
 		A4788D52299108260052AEF7 /* Hey-Darcel-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Hey-Darcel-Info.plist"; sourceTree = SOURCE_ROOT; };
+		A4788D53299269B20052AEF7 /* Shared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shared.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				A4788D50299107B90052AEF7 /* itc-avant-garde-gothic-lt-bold.ttf */,
 				A4788D44298D297C0052AEF7 /* Assets.xcassets */,
 				A4788D46298D297C0052AEF7 /* Preview Content */,
+				A4788D53299269B20052AEF7 /* Shared.swift */,
 			);
 			path = "Hey Darcel";
 			sourceTree = "<group>";
@@ -148,6 +151,7 @@
 			files = (
 				A4788D43298D297A0052AEF7 /* ContentView.swift in Sources */,
 				A4788D41298D297A0052AEF7 /* Hey_DarcelApp.swift in Sources */,
+				A4788D54299269B20052AEF7 /* Shared.swift in Sources */,
 				A4788D4F298D29F10052AEF7 /* Darcel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
