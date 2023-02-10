@@ -9,24 +9,39 @@ import SwiftUI
 
 struct Darcel: View {
     var body: some View {
-        ZStack {
-            Image("darcel-head")
-                .resizable()
-                .scaledToFit()
-            
-            Image("darcel-glasses")
-                .resizable()
-                .scaledToFit()
-            
-            Image("darcel-mouth-smile")
-                .resizable()
-                .scaledToFit()
+        GeometryReader { geometry in
+            ZStack {
+                // Head
+                Image("darcel-head")
+                    .resizable()
+                    .scaledToFit()
+                
+                // Glasses
+                Image("darcel-glasses")
+                    .resizable()
+                    .scaledToFit()
+                
+                // Mouth
+                Image("darcel-mouth-smile")
+                    .resizable()
+                    .scaledToFit()
+                
+                // Eye
+                Image("darcel-eye")
+                    .resizable()
+                    .scaledToFit()
+                    .offset(y: geometry.size.height / 7.4)
+            }
+            .frame(maxWidth: .infinity)
         }
     }
 }
 
 struct Darcel_Previews: PreviewProvider {
     static var previews: some View {
-        Darcel()
+        GeometryReader { geometry in
+            Darcel()
+                .frame(height: geometry.size.height / 2)
+        }
     }
 }
