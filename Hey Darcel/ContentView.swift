@@ -28,8 +28,6 @@ struct ContentView: View {
                 
                 // Question input
                 Question(isRecording: $isRecording, question: $question, questionFocused: _questionFocused)
-                    .font(.custom("ITC Avant Garde Gothic LT Bold", size: UIDevice.current.userInterfaceIdiom == .pad ? 36: 24))
-                    .tracking(-1)
                     .frame(height: !questionFocused ? geometry.size.height / 4 : geometry.size.height / 2) // Adjust size when keyboard open
             }
             .background(Color("DarcelYellow"))

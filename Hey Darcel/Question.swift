@@ -16,53 +16,16 @@ struct Question: View {
     var body: some View {
         ZStack {
             if (speechRecognizer.transcript != "") {
-                VStack(spacing: 0) {
-                    Spacer()
-                    
-                    // Textfield
-                    TextField("", text: $question, prompt: Text("Type your question here").foregroundColor(.white), axis: .vertical)
-                        .focused($questionFocused)
-                        .foregroundColor(Color.white)
-                        .onChange(of: question) { newValue in
-                            question = String(newValue.prefix(140)) // Limit characters
-                        }
-                    
-                    Spacer()
-                    
-                    // Buttons
-                    if (questionFocused) {
-                        QuestionButtons(question: $question, questionFocused: _questionFocused)
-                    }
-                }
+                // Field
+                QuestionField(speechRecognizer: speechRecognizer, question: $question, isRecording: $isRecording, questionFocused: _questionFocused)
+            } else {
+                // Mic
+                QuestionMic(speechRecognizer: speechRecognizer, isRecording: $isRecording)
             }
-            /* if (speechRecognizer.transcript == "") {
-             // Speech allowed
-             Button {
-             //speechRecognizer.stopTranscribing()
-             speechRecognizer.reset()
-             speechRecognizer.transcribe()
-             isRecording = true
-             } label: {
-             Image(systemName: "mic")
-             .font(.system(size: 72))
-             }
-             } else {
-             VStack {
-             TextField("Type your question here", text: $question, axis: .vertical)
-             .focused($questionFocused)
-             .font(.custom("ITC Avant Garde Gothic LT Bold", size: UIDevice.current.userInterfaceIdiom == .pad ? 48: 24))
-             .foregroundColor(Color.white)
-             .padding()
-             
-             /* if (questionFocused) {
-              Button(speechRecognizer.transcript) {
-              questionFocused = false
-              }
-              } */
-             }
-             } */
         }
         .padding()
+        .font(.custom("ITC Avant Garde Gothic LT Bold", size: UIDevice.current.userInterfaceIdiom == .pad ? 36: 24))
+        .tracking(-1)
     }
 }
 
