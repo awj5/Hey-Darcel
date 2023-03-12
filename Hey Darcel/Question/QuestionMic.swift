@@ -18,7 +18,7 @@ struct QuestionMic: View {
             
             // Mic
             Button {
-                if (isRecording) {
+                if isRecording {
                     // Stop recording
                     speechRecognizer.stopTranscribing()
                     isRecording = false

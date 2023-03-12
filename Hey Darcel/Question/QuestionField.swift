@@ -26,11 +26,11 @@ struct QuestionField: View {
             
             Spacer()
             
-            if (questionFocused || isRecording) {
+            if questionFocused || isRecording {
                 // Buttons
                 QuestionFieldButtons(speechRecognizer: speechRecognizer, question: $question, isRecording: $isRecording, questionFocused: _questionFocused)
-            } else if (question == "") {
-                if (speechRecognizer.transcript.contains("<<")) {
+            } else if question == "" {
+                if speechRecognizer.transcript.contains("<<") {
                     // Speech not allowed
                     Link("Allow Microphone and Speech Recognition in Settings to speak to Darcel", destination: URL(string: UIApplication.openSettingsURLString)!)
                         .multilineTextAlignment(.center)

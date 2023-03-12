@@ -16,7 +16,7 @@ struct ContentView: View {
         GeometryReader { geometry in
             VStack(spacing: 0) {
                 // Heading
-                if (!questionFocused) { // Hide if keyboard open
+                if !questionFocused { // Hide if keyboard open
                     Heading1(lines: ["Ask me a", "question", "then shake!"])
                         .foregroundColor(.white)
                         .frame(height: geometry.size.height / 4)

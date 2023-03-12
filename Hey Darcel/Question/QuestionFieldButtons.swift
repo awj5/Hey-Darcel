@@ -16,7 +16,7 @@ struct QuestionFieldButtons: View {
     var body: some View {
         HStack(spacing: 0) {
             // Clear
-            if (!isRecording) {
+            if !isRecording {
                 Button {
                     question = ""
                 } label: {
@@ -30,7 +30,7 @@ struct QuestionFieldButtons: View {
             
             // Done
             Button {
-                if (isRecording) {
+                if isRecording {
                     // Stop recording
                     speechRecognizer.stopTranscribing()
                     isRecording = false;
