@@ -9,23 +9,30 @@ import SwiftUI
 
 struct Question: View {
     @StateObject private var speechRecognizer = SpeechRecognizer()
+    @State private var forceKeyboard = false
     @Binding var isRecording: Bool
     @Binding var question: String
     @FocusState var questionFocused: Bool
     
     var body: some View {
         ZStack {
-            if (speechRecognizer.transcript != "") {
+            if (forceKeyboard || speechRecognizer.transcript != "") {
                 // Field
-                QuestionField(speechRecognizer: speechRecognizer, question: $question, isRecording: $isRecording, questionFocused: _questionFocused)
+                QuestionField(speechRecognizer: speechRecognizer, question: $question, isRecording: $isRecording, forceKeyboard: $forceKeyboard, questionFocused: _questionFocused)
             } else {
                 // Mic
-                QuestionMic(speechRecognizer: speechRecognizer, isRecording: $isRecording)
+                QuestionMic(speechRecognizer: speechRecognizer, isRecording: $isRecording, forceKeyboard: $forceKeyboard)
             }
         }
         .padding()
         .font(.custom("ITC Avant Garde Gothic LT Bold", size: UIDevice.current.userInterfaceIdiom == .pad ? 36: 24))
         .tracking(-1)
+        .onChange(of: question) { newValue in
+            question = String(newValue.prefix(140)) // Limit characters
+        }
+        .onChange(of: speechRecognizer.transcript) { newValue in
+            question = speechRecognizer.transcript.contains("<<") ? "" : speechRecognizer.transcript // Update question with recorded speech if allowed
+        }
     }
 }
 

@@ -11,6 +11,7 @@ struct QuestionField: View {
     @ObservedObject var speechRecognizer: SpeechRecognizer
     @Binding var question: String
     @Binding var isRecording: Bool
+    @Binding var forceKeyboard: Bool
     @FocusState var questionFocused: Bool
     
     var body: some View {
@@ -22,32 +23,31 @@ struct QuestionField: View {
                 .focused($questionFocused)
                 .disabled(isRecording)
                 .foregroundColor(Color.white)
-                .onChange(of: question) { newValue in
-                    question = String(newValue.prefix(140)) // Limit characters
-                    //print("question")
-                }
-                .onChange(of: speechRecognizer.transcript) { newValue in
-                    question = speechRecognizer.transcript
-                    //print("transcript")
-                }
             
             Spacer()
             
             if (questionFocused || isRecording) {
                 // Buttons
                 QuestionFieldButtons(speechRecognizer: speechRecognizer, question: $question, isRecording: $isRecording, questionFocused: _questionFocused)
-            } else {
-                // Mic
+            } else if (question == "") {
                 if (speechRecognizer.transcript.contains("<<")) {
-                    Text("No mic")
+                    // Speech not allowed
+                    Link("Allow Microphone and Speech Recognition in Settings to speak to Darcel", destination: URL(string: UIApplication.openSettingsURLString)!)
+                        .multilineTextAlignment(.center)
+                        .font(.custom("ITC Avant Garde Gothic LT Bold", size: UIDevice.current.userInterfaceIdiom == .pad ? 18: 12))
+                        .tracking(-0.5)
+                        .accentColor(.black)
+                        .padding([.leading, .trailing], 16)
                 } else {
+                    // Mic
                     Button {
                         speechRecognizer.transcript = ""
+                        forceKeyboard = false
                     } label: {
-                        Image(systemName: "mic")
-                            .font(.system(size: 24))
+                        Image(systemName: "mic.fill")
+                            .font(.system(size: UIDevice.current.userInterfaceIdiom == .pad ? 48 : 30))
                     }
-                    .accentColor(.white)
+                    .accentColor(.black)
                 }
             }
         }
@@ -56,6 +56,6 @@ struct QuestionField: View {
 
 struct QuestionField_Previews: PreviewProvider {
     static var previews: some View {
-        QuestionField(speechRecognizer: SpeechRecognizer(), question: .constant(""), isRecording: .constant(false))
+        QuestionField(speechRecognizer: SpeechRecognizer(), question: .constant(""), isRecording: .constant(false), forceKeyboard: .constant(false))
     }
 }
