@@ -10,6 +10,7 @@ import SwiftUI
 struct Home: View {
     @State private var isRecording = false
     @State private var question = ""
+    @State private var shaking = false
     @FocusState private var questionFieldFocused: Bool
     
     var body: some View {
@@ -22,7 +23,7 @@ struct Home: View {
                 }
                 
                 // Darcel
-                Darcel(isRecording: isRecording, questionFieldFocused: questionFieldFocused)
+                Darcel(isRecording: isRecording, questionFieldFocused: questionFieldFocused, shaking: shaking)
                     .frame(height: geometry.size.height / 2)
                 
                 // Question input
@@ -30,7 +31,7 @@ struct Home: View {
                     .frame(height: !questionFieldFocused ? geometry.size.height / 4 : geometry.size.height / 2) /// Adjust size when keyboard open
             }
             .onShake {
-                print("Device shaken!")
+                shaking = true
             }
         }
     }
