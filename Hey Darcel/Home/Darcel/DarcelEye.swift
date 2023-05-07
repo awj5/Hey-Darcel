@@ -12,7 +12,7 @@ struct DarcelEye: View {
     @State private var eyePos = "C"
     @State private var eyeMoveDuration = 0.5
     @Binding var darcelFace: Face
-    let listen: Bool
+    let listening: Bool
     let shaking: Bool
     
     var body: some View {
@@ -23,7 +23,7 @@ struct DarcelEye: View {
                 .offset(x: darcelFace.eye.x, y: darcelFace.eye.y)
                 .animation(.easeOut(duration: eyeMoveDuration), value: [darcelFace.eye.x, darcelFace.eye.y])
                 .onReceive(eyeTimer) { time in
-                    if !listen && !shaking {
+                    if !listening && !shaking {
                         darcelFace.eye = Int.random(in: 0..<2) == 0 ? newEyePos(height: geometry.size.height) : Eye(x: darcelFace.eye.x, y: darcelFace.eye.y) /// 1/2 chance of changing
                     }
                 }
@@ -34,7 +34,7 @@ struct DarcelEye: View {
                         eyeMoveDuration = 0
                         
                         Task {
-                            await shakeEye(count: 0, height: geometry.size.height)
+                            await shakeEye(count: 0, height: geometry.size.height) /// Init
                         }
                         
                         // Mouth
@@ -119,6 +119,6 @@ struct DarcelEye: View {
 
 struct DarcelEye_Previews: PreviewProvider {
     static var previews: some View {
-        DarcelEye(darcelFace: .constant(Face(eye: Eye(x: 0, y: 0))), listen: false, shaking: false)
+        DarcelEye(darcelFace: .constant(Face(eye: Eye(x: 0, y: 0))), listening: false, shaking: false)
     }
 }

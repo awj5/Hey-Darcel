@@ -35,6 +35,11 @@ struct Home: View {
                     isRecording = false;
                     questionFieldFocused = false
                     shaking = true
+                    
+                    Task {
+                        try await Task.sleep(until: .now + .seconds(10), clock: .continuous)
+                        shaking = false /// Temp
+                    }
                 }
             }
         }

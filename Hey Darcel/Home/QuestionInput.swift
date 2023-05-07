@@ -19,7 +19,7 @@ struct QuestionInput: View {
     
     var body: some View {
         ZStack {
-            if showField || speechRecognizer.transcript.contains("<<") {
+            if showField || speechRecognizer.transcript.contains("<<") { /// Always show if speech not allowed
                 // Field
                 QuestionField(speechRecognizer: speechRecognizer, question: $question, isRecording: $isRecording, showField: $showField, questionFieldFocused: _questionFieldFocused, shaking: shaking)
             } else {
@@ -54,9 +54,9 @@ struct QuestionInput: View {
         .onReceive(speechTimer) { time in
             if isRecording {
                 if speechTimerCount == 10 {
-                    isRecording = false /// No transcript update for 10 secs
+                    isRecording = false /// No transcription for 10 secs
                 } else {
-                    speechTimerCount += 1 /// Count secs
+                    speechTimerCount += 1 /// Count secs since last transcription
                 }
             } else {
                 speechTimer.upstream.connect().cancel() /// Init cancel

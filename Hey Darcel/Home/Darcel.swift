@@ -22,13 +22,13 @@ struct Darcel: View {
     @State private var darcelFace = Face()
     @State private var mouthTimer = Timer.publish(every: 2, on: .main, in: .common).autoconnect()
     @State private var eyelidTimer = Timer.publish(every: 3, on: .main, in: .common).autoconnect()
-    @State private var listen = false
-    @State var listenTask: Task<Void, Never>? = nil
+    @State private var listening = false
+    @State var listeningTask: Task<Void, Never>? = nil
     let isRecording: Bool
     let questionFieldFocused: Bool
     let shaking: Bool
     
-    var inputting: Bool {
+    var userInputting: Bool {
         return isRecording || questionFieldFocused ? true : false
     }
     
@@ -40,7 +40,7 @@ struct Darcel: View {
                 .scaledToFit()
             
             // Eye
-            DarcelEye(darcelFace: $darcelFace, listen: listen, shaking: shaking)
+            DarcelEye(darcelFace: $darcelFace, listening: listening, shaking: shaking)
             
             // Eyelid
             Image("darcel-eyelid-\(darcelFace.eyelid)")
@@ -54,7 +54,7 @@ struct Darcel: View {
                         if darcelFace.eyelid == "closed" {
                             Task {
                                 try await Task.sleep(until: .now + .seconds(0.25), clock: .continuous) /// Pause a moment
-                                darcelFace.eyelid = listen || shaking ? "none" : newEyelid() /// Change if not listening or shaking
+                                darcelFace.eyelid = listening || shaking ? "none" : newEyelid() /// Change if not listening or shaking
                             }
                         }
                     }
@@ -76,14 +76,14 @@ struct Darcel: View {
                 .scaledToFit()
                 .onReceive(mouthTimer) { time in
                     // Mouth
-                    if !listen && !shaking {
+                    if !listening && !shaking {
                         darcelFace.mouth = Int.random(in: 0..<3) == 0 ? newMouth() : darcelFace.mouth /// 1/3 chance of changing
                     }
                 }
         }
-        .onChange(of: inputting) { newValue in
+        .onChange(of: userInputting) { newValue in
             if newValue {
-                listen = true
+                listening = true
                 
                 // Eye
                 darcelFace.eye = Eye(x: 0, y: 0)
@@ -94,18 +94,18 @@ struct Darcel: View {
                 // Eyelid
                 darcelFace.eyelid = "none"
                 
-                // Reset after 5 secs
-                listenTask = Task {
+                // Cancel after 5 secs
+                listeningTask = Task {
                     do {
                         try await Task.sleep(until: .now + .seconds(5), clock: .continuous)
-                        listen = false
+                        listening = false
                     } catch { /// Needed to catch CancellationError()
                         print(error)
                     }
                 }
             } else {
-                listen = false
-                listenTask?.cancel()
+                listening = false
+                listeningTask?.cancel()
             }
         }
     }
