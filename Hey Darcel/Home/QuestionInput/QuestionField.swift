@@ -13,6 +13,7 @@ struct QuestionField: View {
     @Binding var isRecording: Bool
     @Binding var showField: Bool
     @FocusState var questionFieldFocused: Bool
+    let shaking: Bool
     
     var body: some View {
         VStack(spacing: 0) {
@@ -23,7 +24,7 @@ struct QuestionField: View {
                 .font(.custom("ITC Avant Garde Gothic LT Bold", size: UIDevice.current.userInterfaceIdiom == .pad ? 36: 24))
                 .tracking(-1)
                 .focused($questionFieldFocused)
-                .disabled(isRecording)
+                .disabled(isRecording || shaking)
                 .foregroundColor(Color.white)
             
             Spacer()
@@ -57,7 +58,7 @@ struct QuestionField: View {
 
 struct QuestionField_Previews: PreviewProvider {
     static var previews: some View {
-        QuestionField(speechRecognizer: SpeechRecognizer(), question: .constant(""), isRecording: .constant(false), showField: .constant(false))
+        QuestionField(speechRecognizer: SpeechRecognizer(), question: .constant(""), isRecording: .constant(false), showField: .constant(false), shaking: false)
             .background(.gray)
     }
 }

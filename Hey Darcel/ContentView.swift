@@ -8,19 +8,23 @@
 import SwiftUI
 
 struct ContentView: View {
+    @FocusState private var questionFieldFocused: Bool
+    
     var body: some View {
         ZStack(alignment: .topTrailing) {
-            Home()
+            Home(questionFieldFocused: _questionFieldFocused)
             
             // Info button
-            Button {
-                /// Show info
-            } label: {
-                Image(systemName: "info.circle")
-                    .font(.system(size: UIDevice.current.userInterfaceIdiom == .pad ? 36 : 24))
+            if !questionFieldFocused {
+                Button {
+                    /// Show info
+                } label: {
+                    Image(systemName: "info.circle")
+                        .font(.system(size: UIDevice.current.userInterfaceIdiom == .pad ? 36 : 24))
+                }
+                .accentColor(.black)
+                .padding()
             }
-            .accentColor(.black)
-            .padding()
         }
         .background(Color("DarcelYellow"))
     }

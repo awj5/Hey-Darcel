@@ -11,7 +11,7 @@ struct Home: View {
     @State private var isRecording = false
     @State private var question = ""
     @State private var shaking = false
-    @FocusState private var questionFieldFocused: Bool
+    @FocusState var questionFieldFocused: Bool
     
     var body: some View {
         GeometryReader { geometry in
@@ -27,11 +27,15 @@ struct Home: View {
                     .frame(height: geometry.size.height / 2)
                 
                 // Question input
-                QuestionInput(isRecording: $isRecording, question: $question, questionFieldFocused: _questionFieldFocused)
+                QuestionInput(isRecording: $isRecording, question: $question, questionFieldFocused: _questionFieldFocused, shaking: shaking)
                     .frame(height: !questionFieldFocused ? geometry.size.height / 4 : geometry.size.height / 2) /// Adjust size when keyboard open
             }
             .onShake {
-                shaking = true
+                if question != "" {
+                    isRecording = false;
+                    questionFieldFocused = false
+                    shaking = true
+                }
             }
         }
     }

@@ -15,12 +15,13 @@ struct QuestionInput: View {
     @Binding var isRecording: Bool
     @Binding var question: String
     @FocusState var questionFieldFocused: Bool
+    let shaking: Bool
     
     var body: some View {
         ZStack {
             if showField || speechRecognizer.transcript.contains("<<") {
                 // Field
-                QuestionField(speechRecognizer: speechRecognizer, question: $question, isRecording: $isRecording, showField: $showField, questionFieldFocused: _questionFieldFocused)
+                QuestionField(speechRecognizer: speechRecognizer, question: $question, isRecording: $isRecording, showField: $showField, questionFieldFocused: _questionFieldFocused, shaking: shaking)
             } else {
                 // Mic
                 QuestionMic(isRecording: $isRecording, showField: $showField)
@@ -66,7 +67,7 @@ struct QuestionInput: View {
 
 struct Question_Previews: PreviewProvider {
     static var previews: some View {
-        QuestionInput(isRecording: .constant(false), question: .constant(""))
+        QuestionInput(isRecording: .constant(false), question: .constant(""), shaking: false)
             .background(.gray)
     }
 }
