@@ -31,7 +31,7 @@ struct Home: View {
                     .frame(height: !questionFieldFocused ? geometry.size.height / 4 : geometry.size.height / 2) /// Adjust size when keyboard open
             }
             .onShake {
-                if question != "" {
+                if question != "" && !shaking {
                     isRecording = false;
                     questionFieldFocused = false
                     shaking = true
