@@ -9,7 +9,8 @@
 /* Begin PBXBuildFile section */
 		A415E89F29F3D81C002C23BA /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = A415E89E29F3D81B002C23BA /* Home.swift */; };
 		A4414104299893BD003192EE /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4414103299893BD003192EE /* SpeechRecognizer.swift */; };
-		A44141082998BEEA003192EE /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44141072998BEEA003192EE /* Question.swift */; };
+		A44141082998BEEA003192EE /* QuestionInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44141072998BEEA003192EE /* QuestionInput.swift */; };
+		A44644EB2A0680E70022C611 /* DarcelEye.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44644EA2A0680E70022C611 /* DarcelEye.swift */; };
 		A45F0C4A29A4C8F600F6FC1E /* QuestionFieldButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45F0C4929A4C8F600F6FC1E /* QuestionFieldButtons.swift */; };
 		A4788D41298D297A0052AEF7 /* Hey_DarcelApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4788D40298D297A0052AEF7 /* Hey_DarcelApp.swift */; };
 		A4788D43298D297A0052AEF7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4788D42298D297A0052AEF7 /* ContentView.swift */; };
@@ -26,7 +27,8 @@
 /* Begin PBXFileReference section */
 		A415E89E29F3D81B002C23BA /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		A4414103299893BD003192EE /* SpeechRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechRecognizer.swift; sourceTree = "<group>"; };
-		A44141072998BEEA003192EE /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		A44141072998BEEA003192EE /* QuestionInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionInput.swift; sourceTree = "<group>"; };
+		A44644EA2A0680E70022C611 /* DarcelEye.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarcelEye.swift; sourceTree = "<group>"; };
 		A45F0C4929A4C8F600F6FC1E /* QuestionFieldButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionFieldButtons.swift; sourceTree = "<group>"; };
 		A4788D3D298D297A0052AEF7 /* Hey Darcel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hey Darcel.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4788D40298D297A0052AEF7 /* Hey_DarcelApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hey_DarcelApp.swift; sourceTree = "<group>"; };
@@ -53,14 +55,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A45F0C4829A4C89A00F6FC1E /* Question */ = {
+		A44644E72A067DDB0022C611 /* Darcel */ = {
+			isa = PBXGroup;
+			children = (
+				A44644EA2A0680E70022C611 /* DarcelEye.swift */,
+			);
+			path = Darcel;
+			sourceTree = "<group>";
+		};
+		A45F0C4829A4C89A00F6FC1E /* QuestionInput */ = {
 			isa = PBXGroup;
 			children = (
 				A45F0C4929A4C8F600F6FC1E /* QuestionFieldButtons.swift */,
 				A4B48B7B29AF654A002CD3CE /* QuestionField.swift */,
 				A4B48B7D29B0B60F002CD3CE /* QuestionMic.swift */,
 			);
-			path = Question;
+			path = QuestionInput;
 			sourceTree = "<group>";
 		};
 		A4788D34298D297A0052AEF7 = {
@@ -116,9 +126,10 @@
 		A4A763B229D0013F00B202E2 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				A45F0C4829A4C89A00F6FC1E /* Question */,
+				A44644E72A067DDB0022C611 /* Darcel */,
+				A45F0C4829A4C89A00F6FC1E /* QuestionInput */,
 				A4788D4E298D29F10052AEF7 /* Darcel.swift */,
-				A44141072998BEEA003192EE /* Question.swift */,
+				A44141072998BEEA003192EE /* QuestionInput.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -194,6 +205,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A44644EB2A0680E70022C611 /* DarcelEye.swift in Sources */,
 				A4B48B7E29B0B60F002CD3CE /* QuestionMic.swift in Sources */,
 				A4414104299893BD003192EE /* SpeechRecognizer.swift in Sources */,
 				A4788D43298D297A0052AEF7 /* ContentView.swift in Sources */,
@@ -203,7 +215,7 @@
 				A45F0C4A29A4C8F600F6FC1E /* QuestionFieldButtons.swift in Sources */,
 				A481B94429D2F7BF009EA5E5 /* Shake.swift in Sources */,
 				A4A763B429D0028A00B202E2 /* Shared.swift in Sources */,
-				A44141082998BEEA003192EE /* Question.swift in Sources */,
+				A44141082998BEEA003192EE /* QuestionInput.swift in Sources */,
 				A4788D4F298D29F10052AEF7 /* Darcel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

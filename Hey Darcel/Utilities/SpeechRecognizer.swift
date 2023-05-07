@@ -1,6 +1,4 @@
-/*
-See LICENSE folder for this sample’s licensing information.
-*/
+//  Code from https://developer.apple.com/tutorials/app-dev-training/transcribing-speech-to-text
 
 import AVFoundation
 import Foundation

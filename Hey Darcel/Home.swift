@@ -27,7 +27,7 @@ struct Home: View {
                     .frame(height: geometry.size.height / 2)
                 
                 // Question input
-                Question(isRecording: $isRecording, question: $question, questionFieldFocused: _questionFieldFocused)
+                QuestionInput(isRecording: $isRecording, question: $question, questionFieldFocused: _questionFieldFocused)
                     .frame(height: !questionFieldFocused ? geometry.size.height / 4 : geometry.size.height / 2) /// Adjust size when keyboard open
             }
             .onShake {

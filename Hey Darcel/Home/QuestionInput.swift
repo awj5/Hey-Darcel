@@ -1,5 +1,5 @@
 //
-//  Question.swift
+//  QuestionInput.swift
 //  Hey Darcel
 //
 //  Created by Adam Johnson on 12/2/2023.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Question: View {
+struct QuestionInput: View {
     @StateObject private var speechRecognizer = SpeechRecognizer()
     @State private var showField = false
     @State private var speechTimer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
@@ -58,7 +58,7 @@ struct Question: View {
                     speechTimerCount += 1 /// Count secs
                 }
             } else {
-                speechTimer.upstream.connect().cancel()
+                speechTimer.upstream.connect().cancel() /// Init cancel
             }
         }
     }
@@ -66,7 +66,7 @@ struct Question: View {
 
 struct Question_Previews: PreviewProvider {
     static var previews: some View {
-        Question(isRecording: .constant(false), question: .constant(""))
+        QuestionInput(isRecording: .constant(false), question: .constant(""))
             .background(.gray)
     }
 }
