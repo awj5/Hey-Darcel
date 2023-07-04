@@ -1,4 +1,4 @@
-//  Code from https://developer.apple.com/tutorials/app-dev-training/transcribing-speech-to-text
+//  Taken from https://developer.apple.com/tutorials/app-dev-training/transcribing-speech-to-text
 
 import AVFoundation
 import Foundation

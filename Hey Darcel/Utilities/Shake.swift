@@ -3,8 +3,9 @@
 //  Hey Darcel
 //
 //  Created by Adam Johnson on 28/3/2023.
-//  Code from https://www.hackingwithswift.com/quick-start/swiftui/how-to-detect-shake-gestures
 //
+
+//  Taken from https://www.hackingwithswift.com/quick-start/swiftui/how-to-detect-shake-gestures
 
 import SwiftUI
 
