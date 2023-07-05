@@ -22,7 +22,6 @@ struct ContentView: View {
                     Image(systemName: "info.circle")
                         .font(.system(size: UIDevice.current.userInterfaceIdiom == .pad ? 36 : 24))
                 }
-                .accentColor(.black)
                 .padding()
             }
         }
